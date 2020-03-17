@@ -1,26 +1,58 @@
 import React from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
+import UserCard from "./components/UserCard";
+import FollowerCard from './components/FollowerCard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(){
+    super();
+
+    this.state = {
+      gitHubData : {},
+      gitHubFollowers : []
+    }
+  }
+  
+  componentDidMount(){
+
+    axios.get(`https://api.github.com/users/TonyCWalker`)
+      .then(response => {
+        const gitHubData = response.data;
+        this.setState({
+          gitHubData : gitHubData
+        })
+      })
+
+    axios.get(`https://api.github.com/users/dustinmyers/followers`)
+      .then(response =>{
+        const gitHubFollowers = response.data;
+        this.setState({
+          gitHubFollowers : gitHubFollowers
+        })
+      })
+    .catch(err => {
+      console.log(`Error in fetching data: ${err}`);
+    })
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <h1>GitHub User-Card App</h1>
+
+        <UserCard data= {this.state} />
+        <h2>Followers:</h2>
+        <section className="followerContainer">
+          {this.state.gitHubFollowers.map(follower => {
+            return(
+              <FollowerCard follower={follower} />
+            )
+          })}
+        </section>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App; 
