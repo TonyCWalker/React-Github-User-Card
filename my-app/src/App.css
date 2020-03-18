@@ -1,0 +1,104 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.FollowCard{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  margin: 15px auto;
+  justify-content: space-between;
+  }
+  
+  .FollowerCard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 20px;
+  }
+
+  .FollowerCard img {
+    width: 100px;
+    height: 100px;
+  }
+
+  h1 {
+    color:  black;
+    font-size: 25px;
+  }
+  a {
+    font-size: 20px;
+  }
+  header {
+    margin-bottom: 20px;
+  }
+  
+  .App-logo {
+    background:  black;
+  }
+
+  .followerContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+  }
+  
+  .followerContainer .item {
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    border-radius: 15px;
+    width: 250px;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  .followerContainer .item img {
+    border-radius: 15%;
+    width: 150px;
+    margin: 0 auto;
+  }
+  .userCard {
+    border: 3px solid black;
+    width: 33%;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  .userCard img {
+    border-radius: 15px;
+  }
